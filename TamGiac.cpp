@@ -2,61 +2,60 @@
 
 TamGiac::TamGiac()
 {
-	this->A = new Diem[3];
-	for (int i = 0; i < 3; i++) {
-		this->A[i].SetX(0);
-		this->A[i].SetY(0);
-	}
+}
+TamGiac::TamGiac(Diem a, Diem b, Diem c) {
+	A = a;
+	B = b;
+	C = c;
+}
+void TamGiac::TinhTienDiem(float a, float b)
+{
+	A.TinhTien(a, b);
+	B.TinhTien(a, b);
+	C.TinhTien(a, b);
 }
 
-void TamGiac::TinhTienDiem(double a, double b)
+void TamGiac::PhongTo(float k)
 {
-	for (int i = 0; i < 3; i++) {
-		this->A[i].TinhTien(a, b);
-	}
+	A.SetX(A.GetX() * k);
+	A.SetY(A.GetY() * k);
+	B.SetX(B.GetX() * k);
+	B.SetY(B.GetY() * k);
+	C.SetX(C.GetX() * k);
+	C.SetY(C.GetY() * k);
 }
 
-void TamGiac::Nhap()
+void TamGiac::Quay(float rad)
 {
-	using std::cout;
-	using std::cin;
-	for (int i = 0; i < 3; i++) {
-		cout << "diem " << i + 1 << ": ";
-		cin >> this->A[i];
-	}
-}
-
-void TamGiac::PhongTo(double k)
-{
-	using std::cout;
-	while (k > 0) {
-		for (int i = 0; i < 3; i++) {
-			this->A[i].SetX(this->A[i].GetX() * k);
-			this->A[i].SetY(this->A[i].GetY() * k);
-		}
-	}
-}
-
-void TamGiac::ThuNho(double k)
-{
-	using std::cout;
-	while (k > 0) {
-		for (int i = 0; i < 3; i++) {
-			this->A[i].SetX(this->A[i].GetX() * (1 / k));
-			this->A[i].SetY(this->A[i].GetY() * (1 / k));
-		}
-	}
-}
-
-void TamGiac::Xoay()
-{
+	A.Quay(rad);
+	B.Quay(rad);
+	C.Quay(rad);
 }
 
 ostream& operator<<(ostream& os, TamGiac& tg)
 {
-	os << "tam giac co: " << "\n";
-	for (int i = 0; i < 3; i++) {
-		cout << tg.A[i] << "\n";
-	}
+	os << "tam giac duoc tao boi ba diem: " << tg.A << " ," << tg.B << " ," << tg.C;
 	return os;
+}
+
+istream& operator>>(istream& is, TamGiac& tg)
+{
+	int kt;
+	do {
+		kt = 0;
+		cout << "nhap diem A: ";
+		is >> tg.A;
+		cout << "nhap diem B: ";
+		is >> tg.B;
+		cout << "nhap diem C: ";
+		is >> tg.C;
+		Diem d, e;
+		d = tg.A.Vector(tg.B);
+		e = tg.B.Vector(tg.C);
+		if (float(d.GetX() * e.GetY()) == float(d.GetY() * e.GetX())) {
+			kt = 1;
+			cout << "khong ton tai!" << "\n";
+		}
+	} while (kt);
+	return is;
 }

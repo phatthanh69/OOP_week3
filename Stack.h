@@ -1,16 +1,15 @@
 #pragma once
 #include <iostream>
 #include <math.h>
-#define MAX 1000
+#define MAX 100
 using namespace std;
 class Stack
 {
 private:
 	int nTop;
-public:
 	int a[MAX];
+public:
 	Stack();
-	~Stack();
 	void push(int x);
 	int pop();
 	int top();

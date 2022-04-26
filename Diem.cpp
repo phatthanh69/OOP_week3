@@ -6,7 +6,7 @@ Diem::Diem()
 	SetY(0);
 }
 
-Diem::Diem(int a, int b)
+Diem::Diem(float a, float b)
 {
 	SetX(a);
 	SetY(b);
@@ -16,12 +16,12 @@ Diem::~Diem()
 {
 }
 
-void Diem::SetX(int a)
+void Diem::SetX(float a)
 {
 	x = a;
 }
 
-void Diem::SetY(int b)
+void Diem::SetY(float b)
 {
 	y = b;
 }
@@ -36,10 +36,22 @@ int Diem::GetY()
 	return y;
 }
 
-void Diem::TinhTien(int a, int b)
+void Diem::TinhTien(float a, float b)
 {
 	SetX(GetX() + a);
 	SetY(GetY() + b);
+}
+
+void Diem::Quay(float rad){
+    x=x*cos(rad)-y*sin(rad);
+    y=y*sin(rad)+x*cos(rad);
+}
+
+Diem Diem::Vector(Diem a){
+    Diem t;
+    t.SetX(a.GetX()-x);
+    t.SetY(a.GetY()-y);
+    return t;
 }
 
 istream& operator>>(istream& is, Diem& d)

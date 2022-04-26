@@ -1,15 +1,16 @@
 #pragma once
 #include "Diem.h"
+using namespace std;
 class TamGiac
 {
 private:
-	Diem* A;
+	Diem A, B, C;
 public:
 	TamGiac();
-	void TinhTienDiem(double a, double b);
-	void Nhap();
-	void PhongTo(double k);
-	void ThuNho(double k);
-	void Xoay();
-	friend ostream& operator<<(ostream& os, TamGiac& tg);
+	TamGiac(Diem, Diem, Diem);
+	void TinhTienDiem(float, float);
+	void PhongTo(float);
+	void Quay(float);
+	friend ostream& operator<<(ostream&, TamGiac&);
+	friend istream& operator>>(istream&, TamGiac&);
 };

@@ -116,11 +116,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -142,14 +146,15 @@
     <ClInclude Include="DaGiac.h" />
     <ClInclude Include="DaThuc.h" />
     <ClInclude Include="Diem.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="TamGiac.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DaGiac.cpp" />
     <ClCompile Include="DaThuc.cpp" />
     <ClCompile Include="Diem.cpp" />
+    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="TamGiac.cpp" />

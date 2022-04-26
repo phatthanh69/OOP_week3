@@ -1,6 +1,9 @@
 #include <stack>
 #include <iostream>
 #include <math.h>
+#include "TamGiac.h"
+#include "DaGiac.h"
+#include "DaThuc.h"
 using namespace std;
 bool SNT(int n) {
 	while (n <= 1) return false;
@@ -110,7 +113,6 @@ void DecToOct(int n) {
 }
 void DecToBin(int n) {
 	stack<int> stk3;
-	int temp;
 	int x;
 	while (n != 0) {
 		stk3.push(n % 2);

@@ -10,14 +10,15 @@ private:
 	int y;
 public:
 	Diem();
-	Diem(int a, int b);
+	Diem(float a, float b);
 	~Diem();
-	void SetX(int a);
-	void SetY(int b);
+	Diem Vector(Diem);
+	void SetX(float a);
+	void SetY(float b);
 	int GetX();
 	int GetY();
-	void TinhTien(int a, int b);
+	void TinhTien(float a, float b);
+	void Quay(float rad);
 	friend istream& operator>>(istream& is, Diem& d);
-	friend ostream& operator <<(ostream& os, Diem& d);
+	friend ostream& operator<<(ostream& os, Diem& d);
 };
-

@@ -6,13 +6,14 @@ private:
 	Diem* A;
 	int soDiem;
 public:
-	DaGiac(int n);
+	DaGiac();
+	DaGiac(int);
 	~DaGiac();
-	void Nhap();
-	void Xuat();
-	void ThuNho(double k);
-	void PhongTo(double k);
-	void Xoay(double k);
-	friend ostream& operator>>(ostream& os, DaGiac& dg);
+	void ThuNho(float);
+	void PhongTo(float);
+	void Xoay(float);
+	void TinhTien(float, float);
+	friend ostream& operator<<(ostream&, DaGiac&);
+	friend istream& operator>>(istream&, DaGiac&);
 };
 

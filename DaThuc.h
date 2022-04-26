@@ -11,20 +11,13 @@ private:
 	float* heso;
 public:
 	DaThuc();
-	DaThuc(float a[], int n);
-	DaThuc(const DaThuc& f);
+	DaThuc(int);
+	DaThuc(const DaThuc&);
 	~DaThuc();
-	friend ostream operator<<(ostream& os, DaThuc& dt);
-	friend istream operator>>(istream& is, DaThuc& dt);
-	DaThuc& operator=(const DaThuc& f);
-	bool operator==(const DaThuc& f);
-	bool operator<(const DaThuc& f);
-	bool operator>(const DaThuc& f);
-	bool operator<=(const DaThuc& f);
-	bool operator>=(const DaThuc& f);
-	DaThuc operator +(DaThuc&);
-	DaThuc operator -(DaThuc&);
-	DaThuc operator *(DaThuc&);
-	DaThuc operator /(DaThuc&);
+	float TinhGiaTri(float x);
+	friend DaThuc operator +(DaThuc, DaThuc);
+	friend DaThuc operator -(DaThuc, DaThuc);
+	friend istream& operator>>(istream&, DaThuc&);
+	friend ostream& operator<<(ostream&, DaThuc&);
 };
 
